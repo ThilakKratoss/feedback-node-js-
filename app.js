@@ -87,6 +87,13 @@ app.get('/ideas',(req,res)=>{
 
   });
 
+app.get('/review', (req, res) => {
+  Idea.find({})
+    .then(data=>{
+      res.json(data);
+    });
+});
+
 app.get('/ideas/add',(req,res)=>{
   res.render('ideas/add');
 })
