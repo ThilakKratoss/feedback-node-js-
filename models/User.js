@@ -7,14 +7,10 @@ name:{
   type:String,
   required:true
 },
-email:{
+comment:{
 type:String,
 required:true
 }, 
-password:{
-    type:String,
-    required:true
-    }, 
 date:{
   type:Date,
   default:Date.now

@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 
@@ -8,7 +8,7 @@ const {ensureAuthenticated} = require('../helpers/auth');
 require('../models/Idea');
 
 const Idea = mongoose.model('ideas');
-    router.get('/',ensureAuthenticated,(req,res)=>{
+    router.get('/',(req,res)=>{
     Idea.find({user : req.user.id})
     .sort({date:'desc'})
     .then(ideas =>{
@@ -17,7 +17,7 @@ const Idea = mongoose.model('ideas');
       });
     }); 
   });
-  router.get('/add',ensureAuthenticated,(req,res)=>{
+  router.get('/add',(req,res)=>{
     res.render('ideas/add');
   });
   
@@ -36,7 +36,7 @@ const Idea = mongoose.model('ideas');
      }
    });
   });
-  router.post('/',ensureAuthenticated,(req,res)=>{
+  router.post('/',(req,res)=>{
     let errors = [];
     if(!req.body.title){
       errors.push({text:"please add a title"});
@@ -65,7 +65,7 @@ const Idea = mongoose.model('ideas');
           })
           }
      });
-     router.put('/:id',ensureAuthenticated,(req,res)=>{
+     router.put('/:id',(req,res)=>{
     Idea.findOne({
       _id:req.params.id
     })
@@ -81,7 +81,7 @@ const Idea = mongoose.model('ideas');
                 });
        });
   
-       router.delete('/:id',ensureAuthenticated,(req,res)=>{
+       router.delete('/:id',(req,res)=>{
      Idea.remove({_id: req.params.id})
       .then(idea=>{
         req.flash('success_msg','Video Idea Removed');
@@ -89,4 +89,7 @@ const Idea = mongoose.model('ideas');
       });
      });
 
-module.exports = router;
+     router.post('/users/login',(req,res)=>{
+      req.flash('success_msg','Sucessfully addded');
+     })
+module.exports = router;*/

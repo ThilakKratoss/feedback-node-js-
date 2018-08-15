@@ -20,13 +20,15 @@ router.get('/login',(req,res)=>{
    
    //login form post
    router.post('/login',(req,res,next)=>{
-       passport.authenticate('local' ,{
-       successRedirect : '/ideas',
-       failureRedirect : '/users/login',
-       failureFlash :true
-     })(req,res,next);
+    console.log(req.body.name);
+    console.log(req.body.comment);
+  
     
+    req.flash('success_msg','message sent');
+     
    });
+    
+  
    
    //register form post
    router.post('/register',(req,res)=>{
@@ -60,8 +62,8 @@ router.get('/login',(req,res)=>{
           else{
             const newUser = new User ({
               name: req.body.name,
-              email: req.body.email,
-              password: req.body.password
+              comment: req.body.comment,
+             
             });
           
            bcrypt.genSalt(10, (err,salt)=>{
