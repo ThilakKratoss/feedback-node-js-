@@ -40,6 +40,12 @@ app.use( bodyParser.json());
 //static folder
 app.use(express.static(path.join(__dirname,'public')));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(methodOverride('_method'));
 app.use(session({
   secret: 'secret',
@@ -47,6 +53,8 @@ app.use(session({
   saveUninitialized: true,
   
 }));
+
+
 
 // passport middleware
 app.use(passport.initialize());
