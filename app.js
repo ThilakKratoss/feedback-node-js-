@@ -133,7 +133,7 @@ app.post('/ideas',(req,res)=>{
 
 
 
-const port = process.env.PORT || 5500;
+const port = process.env.PORT || 6500;
 
 
 app.listen(port,()=>{
